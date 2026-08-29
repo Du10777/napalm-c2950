@@ -1,6 +1,12 @@
 # Changelog
 
-## 0.1.0 (unreleased)
+## 0.1.1
+
+- Fix package metadata URLs to point at the source repository.
+- `get_config`: `full=True` is accepted for API compatibility but ignored —
+  the Catalyst 2950 IOS has no `show running-config all` command.
+
+## 0.1.0
 
 Initial release. Verified against **Cisco WS-C2950G-48-EI**, IOS **12.1(22)EA9**.
 

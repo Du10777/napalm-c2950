@@ -354,11 +354,13 @@ class C2950Driver(NetworkDriver):
 
     def get_config(self, retrieve="all", full=False, sanitized=False, format="text"):
         # Verified on IOS 12.1(22)EA9. Candidate config is not supported (-> "").
-        # full=True uses `show running-config all` (includes default lines).
+        # `full` is accepted for API compatibility but ignored: this IOS has no
+        # `show running-config all` (returns "% Invalid input detected").
         configs = {"running": "", "startup": "", "candidate": ""}
-        running_cmd = "show running-config all" if full else "show running-config"
         if retrieve in ("all", "running"):
-            configs["running"] = self._clean_config(self._send_command(running_cmd))
+            configs["running"] = self._clean_config(
+                self._send_command("show running-config")
+            )
         if retrieve in ("all", "startup"):
             configs["startup"] = self._clean_config(
                 self._send_command("show startup-config")

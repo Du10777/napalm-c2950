@@ -53,7 +53,8 @@ those six fields are returned as `-1`.
 ² IOS reports ARP age in minutes; it is converted to seconds. `vrf` is accepted
 for API compatibility but ignored (single routing table).
 ³ Candidate config is not supported (`candidate` is always `""`). `sanitized=True`
-uses NAPALM's `CISCO_SANITIZE_FILTERS`.
+uses NAPALM's `CISCO_SANITIZE_FILTERS`. `full=True` is accepted but ignored — this
+IOS has no `show running-config all`.
 ⁴ The `disp` column is mapped to `jitter`; `type` is not reported (empty string).
 ⁵ Only fan and power status are exposed by `show env all`; `temperature`/`cpu`
 are empty and `memory` fields are `-1`.
