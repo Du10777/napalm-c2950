@@ -15,12 +15,11 @@ setup(
     ),
     long_description=long_description,
     long_description_content_type="text/markdown",
-    # TODO(publish): confirm author / URLs before the first PyPI upload.
     author="Du10777",
-    url="https://github.com/napalm-automation-community/napalm-c2950",
+    url="https://github.com/Du10777/napalm-c2950",
     project_urls={
-        "Source": "https://github.com/napalm-automation-community/napalm-c2950",
-        "Issues": "https://github.com/napalm-automation-community/napalm-c2950/issues",
+        "Source": "https://github.com/Du10777/napalm-c2950",
+        "Issues": "https://github.com/Du10777/napalm-c2950/issues",
     },
     license="Apache 2.0",
     keywords="napalm cisco catalyst 2950 ios switch network automation",
