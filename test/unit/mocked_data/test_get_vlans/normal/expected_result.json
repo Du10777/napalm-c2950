@@ -1,0 +1,441 @@
+{
+    "1": {
+        "name": "default",
+        "interfaces": [
+            "FastEthernet0/46",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+        ]
+    },
+    "2": {
+        "name": "VLAN0002",
+        "interfaces": []
+    },
+    "10": {
+        "name": "VLAN0010",
+        "interfaces": [
+            "FastEthernet0/1",
+            "FastEthernet0/2",
+            "FastEthernet0/3",
+            "FastEthernet0/4",
+            "FastEthernet0/5",
+            "FastEthernet0/6",
+            "FastEthernet0/7",
+            "FastEthernet0/8",
+            "FastEthernet0/9",
+            "FastEthernet0/10",
+            "FastEthernet0/11",
+            "FastEthernet0/12",
+            "FastEthernet0/13",
+            "FastEthernet0/14",
+            "FastEthernet0/15",
+            "FastEthernet0/16",
+            "FastEthernet0/17",
+            "FastEthernet0/18",
+            "FastEthernet0/19",
+            "FastEthernet0/20",
+            "FastEthernet0/21",
+            "FastEthernet0/22",
+            "FastEthernet0/23",
+            "FastEthernet0/24",
+            "FastEthernet0/25",
+            "FastEthernet0/26",
+            "FastEthernet0/27",
+            "FastEthernet0/28",
+            "FastEthernet0/29",
+            "FastEthernet0/30",
+            "FastEthernet0/31",
+            "FastEthernet0/32",
+            "FastEthernet0/33",
+            "FastEthernet0/34",
+            "FastEthernet0/35",
+            "FastEthernet0/36",
+            "FastEthernet0/37",
+            "FastEthernet0/38",
+            "FastEthernet0/39",
+            "FastEthernet0/40",
+            "FastEthernet0/41",
+            "FastEthernet0/42",
+            "FastEthernet0/43",
+            "FastEthernet0/44",
+            "FastEthernet0/45",
+            "FastEthernet0/47"
+        ]
+    },
+    "11": {
+        "name": "VLAN0011",
+        "interfaces": []
+    },
+    "12": {
+        "name": "VLAN0012",
+        "interfaces": []
+    },
+    "13": {
+        "name": "VLAN0013",
+        "interfaces": []
+    },
+    "14": {
+        "name": "VLAN0014",
+        "interfaces": []
+    },
+    "15": {
+        "name": "VLAN0015",
+        "interfaces": []
+    },
+    "16": {
+        "name": "VLAN0016",
+        "interfaces": []
+    },
+    "17": {
+        "name": "VLAN0017",
+        "interfaces": []
+    },
+    "18": {
+        "name": "VLAN0018",
+        "interfaces": []
+    },
+    "19": {
+        "name": "VLAN0019",
+        "interfaces": []
+    },
+    "20": {
+        "name": "VLAN0020",
+        "interfaces": []
+    },
+    "21": {
+        "name": "VLAN0021",
+        "interfaces": []
+    },
+    "22": {
+        "name": "VLAN0022",
+        "interfaces": []
+    },
+    "23": {
+        "name": "VLAN0023",
+        "interfaces": []
+    },
+    "24": {
+        "name": "VLAN0024",
+        "interfaces": []
+    },
+    "25": {
+        "name": "VLAN0025",
+        "interfaces": []
+    },
+    "26": {
+        "name": "VLAN0026",
+        "interfaces": []
+    },
+    "27": {
+        "name": "VLAN0027",
+        "interfaces": []
+    },
+    "28": {
+        "name": "VLAN0028",
+        "interfaces": []
+    },
+    "29": {
+        "name": "VLAN0029",
+        "interfaces": []
+    },
+    "30": {
+        "name": "VLAN0030",
+        "interfaces": []
+    },
+    "31": {
+        "name": "VLAN0031",
+        "interfaces": []
+    },
+    "32": {
+        "name": "VLAN0032",
+        "interfaces": []
+    },
+    "33": {
+        "name": "VLAN0033",
+        "interfaces": []
+    },
+    "34": {
+        "name": "VLAN0034",
+        "interfaces": []
+    },
+    "35": {
+        "name": "VLAN0035",
+        "interfaces": []
+    },
+    "36": {
+        "name": "VLAN0036",
+        "interfaces": []
+    },
+    "37": {
+        "name": "VLAN0037",
+        "interfaces": []
+    },
+    "38": {
+        "name": "VLAN0038",
+        "interfaces": []
+    },
+    "39": {
+        "name": "VLAN0039",
+        "interfaces": []
+    },
+    "40": {
+        "name": "VLAN0040",
+        "interfaces": []
+    },
+    "41": {
+        "name": "VLAN0041",
+        "interfaces": []
+    },
+    "42": {
+        "name": "VLAN0042",
+        "interfaces": []
+    },
+    "43": {
+        "name": "VLAN0043",
+        "interfaces": []
+    },
+    "44": {
+        "name": "VLAN0044",
+        "interfaces": []
+    },
+    "45": {
+        "name": "VLAN0045",
+        "interfaces": []
+    },
+    "46": {
+        "name": "VLAN0046",
+        "interfaces": []
+    },
+    "47": {
+        "name": "VLAN0047",
+        "interfaces": []
+    },
+    "48": {
+        "name": "VLAN0048",
+        "interfaces": []
+    },
+    "49": {
+        "name": "VLAN0049",
+        "interfaces": []
+    },
+    "50": {
+        "name": "VLAN0050",
+        "interfaces": []
+    },
+    "51": {
+        "name": "VLAN0051",
+        "interfaces": []
+    },
+    "52": {
+        "name": "VLAN0052",
+        "interfaces": []
+    },
+    "53": {
+        "name": "VLAN0053",
+        "interfaces": []
+    },
+    "54": {
+        "name": "VLAN0054",
+        "interfaces": []
+    },
+    "55": {
+        "name": "VLAN0055",
+        "interfaces": []
+    },
+    "56": {
+        "name": "VLAN0056",
+        "interfaces": []
+    },
+    "57": {
+        "name": "VLAN0057",
+        "interfaces": []
+    },
+    "58": {
+        "name": "VLAN0058",
+        "interfaces": []
+    },
+    "59": {
+        "name": "VLAN0059",
+        "interfaces": []
+    },
+    "60": {
+        "name": "VLAN0060",
+        "interfaces": []
+    },
+    "61": {
+        "name": "VLAN0061",
+        "interfaces": []
+    },
+    "62": {
+        "name": "VLAN0062",
+        "interfaces": []
+    },
+    "63": {
+        "name": "VLAN0063",
+        "interfaces": []
+    },
+    "64": {
+        "name": "VLAN0064",
+        "interfaces": []
+    },
+    "65": {
+        "name": "VLAN0065",
+        "interfaces": []
+    },
+    "66": {
+        "name": "VLAN0066",
+        "interfaces": []
+    },
+    "67": {
+        "name": "VLAN0067",
+        "interfaces": []
+    },
+    "68": {
+        "name": "VLAN0068",
+        "interfaces": []
+    },
+    "69": {
+        "name": "VLAN0069",
+        "interfaces": []
+    },
+    "70": {
+        "name": "VLAN0070",
+        "interfaces": []
+    },
+    "71": {
+        "name": "VLAN0071",
+        "interfaces": []
+    },
+    "72": {
+        "name": "VLAN0072",
+        "interfaces": []
+    },
+    "73": {
+        "name": "VLAN0073",
+        "interfaces": []
+    },
+    "74": {
+        "name": "VLAN0074",
+        "interfaces": []
+    },
+    "75": {
+        "name": "VLAN0075",
+        "interfaces": []
+    },
+    "76": {
+        "name": "VLAN0076",
+        "interfaces": []
+    },
+    "77": {
+        "name": "VLAN0077",
+        "interfaces": []
+    },
+    "78": {
+        "name": "VLAN0078",
+        "interfaces": []
+    },
+    "79": {
+        "name": "VLAN0079",
+        "interfaces": []
+    },
+    "80": {
+        "name": "VLAN0080",
+        "interfaces": []
+    },
+    "81": {
+        "name": "VLAN0081",
+        "interfaces": []
+    },
+    "82": {
+        "name": "VLAN0082",
+        "interfaces": []
+    },
+    "83": {
+        "name": "VLAN0083",
+        "interfaces": []
+    },
+    "84": {
+        "name": "VLAN0084",
+        "interfaces": []
+    },
+    "85": {
+        "name": "VLAN0085",
+        "interfaces": []
+    },
+    "86": {
+        "name": "VLAN0086",
+        "interfaces": []
+    },
+    "87": {
+        "name": "VLAN0087",
+        "interfaces": []
+    },
+    "88": {
+        "name": "VLAN0088",
+        "interfaces": []
+    },
+    "89": {
+        "name": "VLAN0089",
+        "interfaces": []
+    },
+    "90": {
+        "name": "VLAN0090",
+        "interfaces": []
+    },
+    "91": {
+        "name": "VLAN0091",
+        "interfaces": []
+    },
+    "92": {
+        "name": "VLAN0092",
+        "interfaces": []
+    },
+    "93": {
+        "name": "VLAN0093",
+        "interfaces": []
+    },
+    "94": {
+        "name": "VLAN0094",
+        "interfaces": []
+    },
+    "95": {
+        "name": "VLAN0095",
+        "interfaces": []
+    },
+    "96": {
+        "name": "VLAN0096",
+        "interfaces": []
+    },
+    "97": {
+        "name": "VLAN0097",
+        "interfaces": []
+    },
+    "98": {
+        "name": "VLAN0098",
+        "interfaces": []
+    },
+    "99": {
+        "name": "VLAN0099",
+        "interfaces": []
+    },
+    "100": {
+        "name": "VLAN0100",
+        "interfaces": []
+    },
+    "1002": {
+        "name": "fddi-default",
+        "interfaces": []
+    },
+    "1003": {
+        "name": "token-ring-default",
+        "interfaces": []
+    },
+    "1004": {
+        "name": "fddinet-default",
+        "interfaces": []
+    },
+    "1005": {
+        "name": "trnet-default",
+        "interfaces": []
+    }
+}

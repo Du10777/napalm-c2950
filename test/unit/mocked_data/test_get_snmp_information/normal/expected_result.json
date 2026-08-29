@@ -1,0 +1,15 @@
+{
+    "chassis_id": "",
+    "community": {
+        "snmp_ro": {
+            "acl": "61",
+            "mode": "ro"
+        },
+        "snmp_rw": {
+            "acl": "61",
+            "mode": "rw"
+        }
+    },
+    "contact": "",
+    "location": ""
+}

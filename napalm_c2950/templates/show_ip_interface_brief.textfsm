@@ -1,0 +1,7 @@
+# TextFSM template for `show ip interface brief` on Cisco Catalyst 2950 EI.
+# Captures the full-form interface name only (used for facts interface_list).
+# Verified: IOS 12.1(22)EA9, WS-C2950G-48-EI.
+Value INTERFACE (\S+)
+
+Start
+  ^${INTERFACE}\s+\S+\s+(?:YES|NO)\s+ -> Record

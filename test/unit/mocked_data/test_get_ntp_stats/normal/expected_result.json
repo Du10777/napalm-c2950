@@ -1,0 +1,15 @@
+[
+    {
+        "remote": "192.0.2.53",
+        "referenceid": "203.0.113.89",
+        "synchronized": true,
+        "stratum": 3,
+        "type": "",
+        "when": "15",
+        "hostpoll": 64,
+        "reachability": 377,
+        "delay": 2.5,
+        "offset": -0.16,
+        "jitter": 0.0
+    }
+]

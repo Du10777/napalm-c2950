@@ -1,0 +1,15 @@
+-------------------------
+Device ID: switch02(SN0000000001)
+Entry address(es):
+  IP address: 192.0.2.100
+Platform: N9K-C9372PX,  Capabilities: Router Switch IGMP
+Interface: FastEthernet0/48,  Port ID (outgoing port): Ethernet1/44
+Holdtime : 138 sec
+
+Version :
+Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I1(2)
+
+advertisement version: 2
+Native VLAN: 1
+Duplex: full
+Management address(es):

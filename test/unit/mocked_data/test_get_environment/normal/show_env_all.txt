@@ -1,0 +1,3 @@
+FAN is OK
+Internal POWER supply is OK
+RPS is NOT present

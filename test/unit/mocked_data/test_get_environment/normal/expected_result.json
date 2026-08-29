@@ -1,0 +1,25 @@
+{
+    "fans": {
+        "FAN": {
+            "status": true
+        }
+    },
+    "temperature": {},
+    "power": {
+        "Internal": {
+            "status": true,
+            "output": -1.0,
+            "capacity": -1.0
+        },
+        "RPS": {
+            "status": false,
+            "output": -1.0,
+            "capacity": -1.0
+        }
+    },
+    "cpu": {},
+    "memory": {
+        "used_ram": -1,
+        "available_ram": -1
+    }
+}

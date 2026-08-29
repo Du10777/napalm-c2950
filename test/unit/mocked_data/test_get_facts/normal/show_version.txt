@@ -1,0 +1,47 @@
+Cisco Internetwork Operating System Software
+IOS (tm) C2950 Software (C2950-I6K2L2Q4-M), Version 12.1(22)EA9, RELEASE SOFTWARE (fc1)
+Copyright (c) 1986-2006 by cisco Systems, Inc.
+Compiled Fri 01-Dec-06 18:22 by weiliu
+Image text-base: 0x80010000, data-base: 0x8067A000
+
+ROM: Bootstrap program is C2950 boot loader
+
+switch01 uptime is 2 weeks, 5 days, 11 hours, 49 minutes
+System returned to ROM by power-on
+System restarted at 13:05:35 UTC Mon Aug 10 2026
+System image file is "flash:/c2950-i6k2l2q4-mz.121-22.EA9.bin"
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+cisco WS-C2950G-48-EI (RC32300) processor (revision Q0) with 19958K bytes of memory.
+Processor board ID FOC00000001
+Last reset from system-reset
+Running Enhanced Image
+48 FastEthernet/IEEE 802.3 interface(s)
+2 Gigabit Ethernet/IEEE 802.3 interface(s)
+
+32K bytes of flash-simulated non-volatile configuration memory.
+Base ethernet MAC Address: 02:00:00:00:00:01
+Motherboard assembly number: 73-7409-12
+Power supply part number: 34-0965-01
+Motherboard serial number: FOC00000002
+Power supply serial number: PHI00000003
+Model revision number: Q0
+Motherboard revision number: B0
+Model number: WS-C2950G-48-EI
+System serial number: FOC00000001
+Configuration register is 0xF

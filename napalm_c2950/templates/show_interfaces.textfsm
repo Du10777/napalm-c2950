@@ -1,0 +1,35 @@
+# TextFSM template for `show interfaces` on Cisco Catalyst 2950 EI.
+# Single source for get_interfaces, get_interfaces_ip and
+# get_interfaces_counters (ADDR/MASKLEN are empty for interfaces without an IP).
+# Verified: IOS 12.1(22)EA9, WS-C2950G-48-EI.
+Value Required INTERFACE (\S+)
+Value LINK_STATUS (.+?)
+Value PROTOCOL_STATUS (\S+)
+Value MAC ([0-9a-fA-F]{4}\.[0-9a-fA-F]{4}\.[0-9a-fA-F]{4})
+Value DESCRIPTION (.+?)
+Value ADDR (\d+\.\d+\.\d+\.\d+)
+Value MASKLEN (\d+)
+Value MTU (\d+)
+Value BW (\d+)
+Value RX_DISCARDS (\d+)
+Value TX_DISCARDS (\d+)
+Value RX_OCTETS (\d+)
+Value RX_BROADCAST (\d+)
+Value RX_MULTICAST (\d+)
+Value RX_ERRORS (\d+)
+Value TX_OCTETS (\d+)
+Value TX_ERRORS (\d+)
+
+Start
+  ^\S+ is .+, line protocol is .+ -> Continue.Record
+  ^${INTERFACE} is ${LINK_STATUS}, line protocol is ${PROTOCOL_STATUS}
+  ^\s+Hardware is .+, address is ${MAC}
+  ^\s+Description:\s+${DESCRIPTION}\s*$$
+  ^\s+Internet address is ${ADDR}/${MASKLEN}
+  ^\s+MTU ${MTU} bytes, BW ${BW} Kbit
+  ^\s+Input queue:\s+\d+/\d+/${RX_DISCARDS}/\d+ .*Total output drops:\s+${TX_DISCARDS}
+  ^\s+\d+ packets input, ${RX_OCTETS} bytes
+  ^\s+Received ${RX_BROADCAST} broadcasts \(${RX_MULTICAST} .*
+  ^\s+${RX_ERRORS} input errors,
+  ^\s+\d+ packets output, ${TX_OCTETS} bytes
+  ^\s+${TX_ERRORS} output errors,

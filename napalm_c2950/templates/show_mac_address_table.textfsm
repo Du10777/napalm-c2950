@@ -1,0 +1,11 @@
+# TextFSM template for `show mac-address-table` on Cisco Catalyst 2950 EI.
+# The MAC value pattern (hhhh.hhhh.hhhh) skips the header and dashed separator.
+# VLAN may be "All" for STATIC control-plane/CPU entries; PORTS may be "CPU".
+# Verified: IOS 12.1(22)EA9, WS-C2950G-48-EI.
+Value VLAN (\S+)
+Value MAC ([0-9a-fA-F]{4}\.[0-9a-fA-F]{4}\.[0-9a-fA-F]{4})
+Value TYPE (\S+)
+Value PORTS (\S+)
+
+Start
+  ^\s*${VLAN}\s+${MAC}\s+${TYPE}\s+${PORTS}\s*$$ -> Record

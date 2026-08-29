@@ -1,0 +1,13 @@
+# TextFSM template for `show version` on Cisco Catalyst 2950 EI.
+# Verified: IOS 12.1(22)EA9, WS-C2950G-48-EI.
+Value HOSTNAME (\S+)
+Value UPTIME (.+)
+Value VERSION (\S+)
+Value MODEL (\S+)
+Value SERIAL (\S+)
+
+Start
+  ^.*, Version ${VERSION}, RELEASE SOFTWARE
+  ^${HOSTNAME} uptime is ${UPTIME}\s*$$
+  ^Model number:\s+${MODEL}\s*$$
+  ^System serial number:\s+${SERIAL}\s*$$ -> Record

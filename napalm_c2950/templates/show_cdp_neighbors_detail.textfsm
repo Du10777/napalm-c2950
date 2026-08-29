@@ -1,0 +1,23 @@
+# TextFSM template for `show cdp neighbors detail` on Cisco Catalyst 2950 EI.
+# CDP is used because the 2950 has no LLDP. Verified: IOS 12.1(22)EA9.
+Value Required DEVICE_ID (\S+)
+Value MGMT_IP (\d+\.\d+\.\d+\.\d+)
+Value PLATFORM (.+?)
+Value CAPABILITIES (.+?)
+Value LOCAL_INTERFACE (\S+)
+Value REMOTE_PORT (\S+)
+Value HOLDTIME (\d+)
+Value VERSION (.+)
+
+Start
+  ^-{5,} -> Continue.Record
+  ^Device ID:\s+${DEVICE_ID}
+  ^\s+IP address:\s+${MGMT_IP}
+  ^Platform:\s+${PLATFORM},\s+Capabilities:\s+${CAPABILITIES}\s*$$
+  ^Interface:\s+${LOCAL_INTERFACE},\s+Port ID \(outgoing port\):\s+${REMOTE_PORT}\s*$$
+  ^Holdtime\s*:\s+${HOLDTIME}\s+sec
+  ^Version\s*: -> VersionState
+
+VersionState
+  ^\s*$$
+  ^${VERSION} -> Start

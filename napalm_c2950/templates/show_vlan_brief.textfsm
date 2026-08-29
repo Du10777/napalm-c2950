@@ -1,0 +1,13 @@
+# TextFSM template for `show vlan brief` on Cisco Catalyst 2950 EI.
+# Handles port lists that wrap onto continuation lines (Filldown + List).
+# Verified: IOS 12.1(22)EA9, WS-C2950G-48-EI.
+Value Filldown,Required VLAN_ID (\d+)
+Value Filldown NAME (\S+)
+Value Filldown STATUS (\S+)
+Value List PORTS (\S.*?)
+
+Start
+  ^\d+\s+\S+\s+\S+ -> Continue.Record
+  ^${VLAN_ID}\s+${NAME}\s+${STATUS}\s{2,}${PORTS}\s*$$
+  ^${VLAN_ID}\s+${NAME}\s+${STATUS}\s*$$
+  ^\s{2,}${PORTS}\s*$$

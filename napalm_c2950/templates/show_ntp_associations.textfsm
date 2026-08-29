@@ -1,0 +1,16 @@
+# TextFSM template for `show ntp associations` on Cisco Catalyst 2950 EI.
+# The leading flag characters (e.g. "*~") are attached to the peer address.
+# Verified: IOS 12.1(22)EA9, WS-C2950G-48-EI.
+Value SYNCFLAG ([*#+~o-]*)
+Value REMOTE (\S+)
+Value REFID (\S+)
+Value STRATUM (\d+)
+Value WHEN (\S+)
+Value POLL (\d+)
+Value REACH (\d+)
+Value DELAY (\S+)
+Value OFFSET (\S+)
+Value DISP (\S+)
+
+Start
+  ^\s*${SYNCFLAG}${REMOTE}\s+${REFID}\s+${STRATUM}\s+${WHEN}\s+${POLL}\s+${REACH}\s+${DELAY}\s+${OFFSET}\s+${DISP}\s*$$ -> Record

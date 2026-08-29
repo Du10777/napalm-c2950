@@ -1,0 +1,17 @@
+{
+    "FastEthernet0/48": [
+        {
+            "remote_system_name": "switch02(SN0000000001)",
+            "remote_port": "Ethernet1/44",
+            "remote_chassis_id": "192.0.2.100",
+            "remote_system_description": "Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I1(2)",
+            "remote_system_capab": [
+                "Router",
+                "Switch",
+                "IGMP"
+            ],
+            "platform": "N9K-C9372PX",
+            "holdtime": 138
+        }
+    ]
+}
