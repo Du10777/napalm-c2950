@@ -45,6 +45,8 @@ with driver("192.0.2.10", "admin", "secret") as device:
 | `get_ntp_peers` | ❌ n/a | no `ntp peer` on this platform |
 | `get_lldp_neighbors_detail` | ❌ n/a | 2950 has no LLDP (CDP only) — see notes |
 | `_get_cdp_neighbors_detail` | ✅ done⁶ | `show cdp neighbors detail` |
+| `get_interfaces_vlans` | ✅ extension⁷ | `show running-config`, `show interfaces status` |
+| `get_lldp_status` | ✅ extension⁷ | — (always disabled: no LLDP on the 2950) |
 
 Everything else raises `NotImplementedError`.
 
@@ -61,6 +63,14 @@ are empty and `memory` fields are `-1`.
 ⁶ Not part of the NAPALM schema (there is no CDP getter). Provided as a private
 method because the 2950 has no LLDP; kept private so the NAPALM
 method-signature test still passes.
+⁷ Not NAPALM base getters (excluded from the
+method-signature test): the format of the orb-agent `custom_napalm` drivers
+(NetBox Labs), consumed by Lineman. `get_interfaces_vlans` returns
+`{port: {"mode": "access" | "trunk" | "trunk-all" | "routed", "tagged": [...],
+"untagged": vid | null}}` from the running configuration (voice VLAN on an
+access port -> `trunk` with the voice VLAN tagged); ports without
+`switchport mode` (DTP) take the negotiated state from `show interfaces status`,
+and stay `routed` (unknown) when it cannot be read.
 
 ## Tested firmware
 

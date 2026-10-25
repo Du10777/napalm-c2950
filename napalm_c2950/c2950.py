@@ -75,6 +75,116 @@ def _parse_uptime(uptime_str):
     return float(seconds) if matched else -1.0
 
 
+_IF_LINE = re.compile(r"^interface\s+(\S+)")
+_SWITCHPORT_PREFIXES = ("FastEthernet", "GigabitEthernet", "Port-channel")
+
+
+def _vlan_id(token):
+    """'10' -> 10; anything else (none, dot1p, untagged, out of range) -> None."""
+    try:
+        vid = int(token)
+    except (TypeError, ValueError):
+        return None
+    return vid if 1 <= vid <= 4094 else None
+
+
+def _expand_vlans(spec):
+    """'1,10-12' -> [1, 10, 11, 12]; clamped to 1..4094, sorted, unique."""
+    vids = set()
+    for chunk in (spec or "").split(","):
+        chunk = chunk.strip()
+        if not chunk:
+            continue
+        lo, _, hi = chunk.partition("-")
+        try:
+            start, end = int(lo), int(hi or lo)
+        except ValueError:
+            continue
+        vids.update(v for v in range(max(start, 1), min(end, 4094) + 1))
+    return sorted(vids)
+
+
+def _parse_switchport_config(config):
+    """Running configuration -> switchport settings of the physical ports and port channels."""
+    ports = {}
+    current = None
+    for line in config.splitlines():
+        match = _IF_LINE.match(line)
+        if match:
+            name = _canonical(match.group(1))
+            current = None
+            if name.startswith(_SWITCHPORT_PREFIXES):
+                current = ports[name] = {"mode": None, "access": None, "native": None,
+                                         "allowed": None, "voice": None}
+            continue
+        if not line.startswith((" ", "\t")):
+            current = None
+        if current is None:
+            continue
+        words = line.split()
+        if words[:2] == ["switchport", "mode"] and len(words) >= 3:
+            current["mode"] = words[2]  # access | trunk | dynamic (auto/desirable)
+        elif words[:3] == ["switchport", "access", "vlan"] and len(words) >= 4:
+            current["access"] = _vlan_id(words[3])
+        elif words[:4] == ["switchport", "trunk", "native", "vlan"] and len(words) >= 5:
+            current["native"] = _vlan_id(words[4])
+        elif words[:4] == ["switchport", "trunk", "allowed", "vlan"] and len(words) >= 5:
+            if words[4] == "add" and len(words) >= 6:
+                current["allowed"] = ",".join(x for x in (current["allowed"], words[5]) if x)
+            else:
+                current["allowed"] = words[4]  # a list, "all" or "none"
+        elif words[:3] == ["switchport", "voice", "vlan"] and len(words) >= 4:
+            current["voice"] = _vlan_id(words[3])
+    return ports
+
+
+def _parse_interfaces_status_vlans(output):
+    """``show interfaces status`` -> {port: Vlan column} ("10", "trunk", ...).
+
+    The columns are located from the header line; the Name column may be
+    empty or hold spaces.
+    """
+    vlans = {}
+    vlan_at = duplex_at = None
+    for line in output.splitlines():
+        if line.startswith("Port") and " Vlan " in line and "Duplex" in line:
+            vlan_at, duplex_at = line.index(" Vlan ") + 1, line.index("Duplex")
+            continue
+        if vlan_at is None or not line.strip():
+            continue
+        port = line.split()[0]
+        value = line[vlan_at:duplex_at].strip()
+        if value:
+            vlans[_canonical(port)] = value
+    return vlans
+
+
+def _classify_switchport(port, oper_vlan):
+    """Switchport settings (+ DTP outcome) -> orb-agent ``get_interfaces_vlans`` entry."""
+    mode = port["mode"]
+    if mode in (None, "dynamic"):  # DTP: what did it negotiate?
+        if oper_vlan == "trunk":
+            mode = "trunk"
+        elif _vlan_id(oper_vlan) is not None:
+            mode = "access"
+    if mode == "access":
+        access = port["access"] or 1
+        voice = port["voice"]
+        if voice is not None and voice != access:
+            return {"mode": "trunk", "tagged": [voice], "untagged": access}
+        return {"mode": "access", "tagged": [], "untagged": access}
+    if mode == "trunk":
+        native = port["native"] or 1
+        allowed = (port["allowed"] or "all").lower()
+        if allowed == "all":
+            return {"mode": "trunk-all", "tagged": [], "untagged": native}
+        vids = [] if allowed == "none" else _expand_vlans(allowed)
+        if len(vids) == 4094:
+            return {"mode": "trunk-all", "tagged": [], "untagged": native}
+        return {"mode": "trunk", "tagged": [v for v in vids if v != native], "untagged": native}
+    return {"mode": "routed", "tagged": [], "untagged": None}
+
+
 class C2950Driver(NetworkDriver):
     """NAPALM driver for Cisco Catalyst 2950 EI switches (classic IOS)."""
 
@@ -385,6 +495,38 @@ class C2950Driver(NetworkDriver):
         # Catalyst 2950 has no LLDP support (CDP only).
         # Use _get_cdp_neighbors_detail() for neighbor discovery on this box.
         raise NotImplementedError
+
+    # ------------------------------------------ extensions (orb-agent format) --
+    def get_interfaces_vlans(self):
+        """802.1Q mode and VLANs per switch port.
+
+        Not a NAPALM base getter: the format is the one of the orb-agent
+        ``custom_napalm`` drivers (NetBox Labs) used by Lineman::
+
+            {"FastEthernet0/1": {"mode": "access" | "trunk" | "trunk-all" | "routed",
+                                 "tagged": [10, 20], "untagged": 1}}
+
+        Verified on IOS 12.1(22)EA9. Read from the running configuration
+        (``switchport mode / access vlan / trunk native vlan / trunk allowed
+        vlan [add] / voice vlan``). A port without a ``switchport mode`` line
+        runs DTP (dynamic desirable is the default here); for those the
+        operational state in ``show interfaces status`` decides: ``trunk`` or
+        an access VLAN. A configured trunk without link still shows its access
+        VLAN there, which is why the configuration comes first.
+        """
+        config = _parse_switchport_config(self._send_command("show running-config"))
+        status = None
+        if any(port["mode"] in (None, "dynamic") for port in config.values()):
+            status = _parse_interfaces_status_vlans(self._send_command("show interfaces status"))
+        result = {}
+        for name, port in config.items():
+            oper = (status or {}).get(name)
+            result[name] = _classify_switchport(port, oper)
+        return result
+
+    def get_lldp_status(self):
+        """LLDP state in the orb-agent / Lineman format: the 2950 has no LLDP at all (CDP only)."""
+        return {"enabled": False, "supported": False}
 
     # ------------------------------------------------------- non-NAPALM extra --
     def _get_cdp_neighbors_detail(self):

@@ -9,7 +9,7 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="napalm-c2950",
-    version="0.1.1",
+    version="0.2.0",
     description=(
         "NAPALM driver for Cisco Catalyst 2950 (WS-C2950G-48-EI) classic IOS switches"
     ),

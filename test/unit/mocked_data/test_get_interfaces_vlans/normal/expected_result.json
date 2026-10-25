@@ -1,0 +1,252 @@
+{
+  "FastEthernet0/1": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/2": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/3": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/4": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/5": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/6": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/7": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/8": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/9": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/10": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/11": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/12": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/13": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/14": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/15": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/16": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/17": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/18": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/19": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/20": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/21": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/22": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/23": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/24": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/25": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/26": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/27": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/28": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/29": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/30": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/31": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/32": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/33": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/34": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/35": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/36": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/37": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/38": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/39": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/40": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/41": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/42": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/43": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/44": {
+    "mode": "access",
+    "tagged": [],
+    "untagged": 10
+  },
+  "FastEthernet0/45": {
+    "mode": "trunk-all",
+    "tagged": [],
+    "untagged": 1
+  },
+  "FastEthernet0/46": {
+    "mode": "trunk-all",
+    "tagged": [],
+    "untagged": 1
+  },
+  "FastEthernet0/47": {
+    "mode": "trunk-all",
+    "tagged": [],
+    "untagged": 1
+  },
+  "FastEthernet0/48": {
+    "mode": "trunk-all",
+    "tagged": [],
+    "untagged": 1
+  },
+  "GigabitEthernet0/1": {
+    "mode": "trunk-all",
+    "tagged": [],
+    "untagged": 1
+  },
+  "GigabitEthernet0/2": {
+    "mode": "trunk-all",
+    "tagged": [],
+    "untagged": 1
+  }
+}
